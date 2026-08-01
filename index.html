@@ -1,111 +1,389 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="The Simple Portfolio">
-	<meta name="author" content="MamaNs">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rahman · AI/ML Engineer & Indie Builder</title>
+<meta name="description" content="AI/ML Engineer & Indie Builder. Production NLP and machine learning, grounded in years shipping real systems, from social listening to market intelligence." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --ink:#1A1918;
+    --gray:#6E6B64;
+    --hair:#E3E1DA;
+    --accent:#14504B;
+    --highlight:rgba(20,80,75,0.16);
+    --maxw:860px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Hanken Grotesk",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-	<title>no deep shit</title>
+  /* type */
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gray);
+  }
+  h1{
+    font-family:"Newsreader",serif;
+    font-weight:500;
+    font-size:clamp(2.5rem,6.2vw,4.4rem);
+    line-height:1.04;
+    letter-spacing:-.015em;
+    margin:.5em 0 .55em;
+    max-width:15ch;
+  }
+  h2{
+    font-family:"Newsreader",serif;
+    font-weight:500;
+    font-size:clamp(1.5rem,3.2vw,2rem);
+    line-height:1.15;
+    letter-spacing:-.01em;
+  }
+  .lede{
+    font-size:1.18rem;
+    color:#38352f;
+    max-width:52ch;
+    line-height:1.6;
+  }
+  p{color:#38352f}
+  a{color:var(--accent);text-decoration:none}
 
-	<link rel="icon" href="img/icon.ico">
+  /* highlight signature */
+  .mark{
+    position:relative;
+    background-image:linear-gradient(var(--highlight),var(--highlight));
+    background-repeat:no-repeat;
+    background-position:0 88%;
+    background-size:100% 42%;
+    padding:0 .04em;
+  }
+  .reveal .mark{background-size:0% 42%;animation:sweep .9s cubic-bezier(.2,.7,.2,1) .55s forwards}
+  @keyframes sweep{to{background-size:100% 42%}}
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/all.min.css">
-	<link rel="stylesheet" href="css/style.css">
+  /* hero */
+  header{padding:16vh 0 12vh}
+  .hero-links{display:flex;gap:26px;margin-top:36px;flex-wrap:wrap}
+  .link{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.82rem;
+    letter-spacing:.02em;
+    color:var(--ink);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding-bottom:3px;
+    border-bottom:1px solid var(--hair);
+    transition:border-color .25s,color .25s;
+  }
+  .link:hover,.link:focus-visible{color:var(--accent);border-color:var(--accent)}
+  .link .arrow{transition:transform .25s}
+  .link:hover .arrow{transform:translate(2px,-2px)}
+
+  /* sections */
+  section{padding:72px 0;border-top:1px solid var(--hair)}
+  .row{display:grid;grid-template-columns:180px 1fr;gap:36px}
+  .row .label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gray);
+    padding-top:.55rem;
+  }
+  .about p{font-size:1.12rem;line-height:1.65;max-width:56ch}
+  .about p+p{margin-top:1.1em}
+
+  /* expertise list */
+  .exp{display:flex;flex-direction:column}
+  .exp-item{padding:26px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:baseline}
+  .exp-item:last-child{border-bottom:none;padding-bottom:0}
+  .exp-item:first-child{padding-top:0}
+  .exp-item .k{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gray);
+  }
+  .exp-item h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.32rem;line-height:1.3;margin-bottom:.35em}
+  .exp-item p{font-size:1rem;color:var(--gray);max-width:48ch}
+
+  /* background outcomes */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .tag{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.74rem;
+    color:var(--ink);
+    border:1px solid var(--hair);
+    border-radius:999px;
+    padding:6px 14px;
+  }
+
+  /* selected work */
+  .work{display:flex;flex-direction:column}
+  .work-item{
+    display:grid;grid-template-columns:180px 1fr;gap:36px;
+    padding:34px 0;border-top:1px solid var(--hair);
+  }
+  .work-item:first-child{border-top:none;padding-top:0}
+  .work-item:last-child{padding-bottom:0}
+  .w-meta{display:flex;flex-direction:column;gap:10px}
+  .w-meta .k{
+    font-family:"Newsreader",serif;font-style:italic;
+    font-size:1.5rem;color:var(--accent);line-height:1;
+  }
+  .w-meta .role{
+    font-family:"JetBrains Mono",monospace;font-size:.68rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--gray);line-height:1.5;
+  }
+  .work-item h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.5rem;line-height:1.25;margin-bottom:.4em}
+  .work-item p{font-size:1.04rem;color:#413e38;max-width:54ch;margin-bottom:1.1em}
+  .stat{
+    font-family:"JetBrains Mono",monospace;font-size:.82rem;
+    color:var(--accent);letter-spacing:.01em;margin-bottom:1.1em!important;
+  }
+  .states{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:1.1em}
+  .state{
+    font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.06em;
+    text-transform:uppercase;padding:4px 11px;border-radius:999px;border:1px solid;
+  }
+  .state-arrow{color:var(--gray);font-size:.8rem}
+  .s-normal{color:#5a7d55;border-color:#c7d6c2}
+  .s-watch{color:#9a7b1f;border-color:#e2d3a3}
+  .s-hot{color:#b5651d;border-color:#e8cbaa}
+  .s-crisis{color:#a23b2e;border-color:#e3bcb4}
+
+  /* stack */
+  .stack{display:flex;flex-wrap:wrap;gap:8px 10px}
+  .chip{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.8rem;
+    color:#413e38;
+  }
+  .chip:not(:last-child)::after{content:"·";margin-left:10px;color:var(--hair)}
+
+  /* footer */
+  footer{padding:80px 0 96px;border-top:1px solid var(--hair)}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .colophon{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--gray);letter-spacing:.04em}
+
+  /* reveal on load */
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .reveal.d1{animation-delay:.05s}
+  .reveal.d2{animation-delay:.15s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .row,.exp-item,.work-item{grid-template-columns:1fr;gap:10px}
+    .row .label,.exp-item .k{padding-top:0}
+    .w-meta{flex-direction:row;align-items:baseline;gap:14px}
+    header{padding:12vh 0 9vh}
+    section{padding:52px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none}
+    .mark{background-size:100% 42%}
+    html{scroll-behavior:auto}
+  }
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+</style>
 </head>
-<body class="d-flex flex-column h-100">
-	<main role="main" class="flex-shrink-0">
-		<div class="container starter">
-			<h1 class="mt-5">The Simple Portfolio</h1>
-			<p class="lead">just a simple portfolio for introductions. no deep shit <i class="fas fa-heart fa-sm" style="color:#fd79a8"></i></p>
-		</div>
-	</main>
+<body>
 
-	<div class="container">
-		<h4 class="mt-5"><i class="fas fa-grin-stars" style="color:#f39c12"></i> what i made</h4>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow reveal d1">AI/ML Engineer · Jakarta</p>
+      <h1 class="reveal d2">I build AI that turns noisy text into <span class="mark">clear signal</span>.</h1>
+      <p class="lede reveal d2">Production NLP and machine learning, grounded in years shipping real systems, from social listening to market intelligence.</p>
+      <div class="hero-links reveal d2">
+        <a class="link" href="https://www.linkedin.com/in/rahmanenjozz/">LinkedIn <span class="arrow">↗</span></a>
+        <a class="link" href="https://github.com/rahmanenjozz">GitHub <span class="arrow">↗</span></a>
+        <a class="link" href="mailto:rahmanshidiq32@gmail.com">Email <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </header>
 
-		<div class="row row-cols-1 row-cols-md-3" style="font-size:14px">
-			<div class="col mb-4">
-				<div class="card h-100">
-					<img src="img/t1.png" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Pencari penginapan terdekat</h5>
-						<p class="card-text">Selain dapat melakukan CRUD pada pemilik dan penginapan, aplikasi ini juga dapat mencari penginapan terdekat dari tempat yang dicari menggunakan API Google Maps</p>
-						<dl class="row">
-							<dt class="col-sm-4">Language</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-primary">PHP</span> <span class="badge badge-pill badge-primary">JavaScript</span> <span class="badge badge-pill badge-primary">HTML</span> <span class="badge badge-pill badge-primary">CSS</span></dd>
-							<dt class="col-sm-4">Database</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-success">MySQL</span></dd>
-							<dt class="col-sm-4">Framework</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-success" style="background-color: #8e44ad ">Bootstrap</span></dd>
-							<dt class="col-sm-4">Source Code</dt>
-							<dd class="col-sm-8"><a href="#" class="badge badge-warning">Open</a></dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-4">
-				<div class="card h-100">
-					<img src="img/t3.png" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Sentimen berita</h5>
-						<p class="card-text">Mendeteksi sentimen berdasarkan keyword berita menggunakan News API dan DantumBox API</p>
-						<dl class="row">
-							<dt class="col-sm-4">Language</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-primary">PHP</span> <span class="badge badge-pill badge-primary">JavaScript</span> <span class="badge badge-pill badge-primary">HTML</span> <span class="badge badge-pill badge-primary">CSS</span></dd>
-							<dt class="col-sm-4">Database</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill">None</span></dd>
-							<dt class="col-sm-4">Framework</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-success" style="background-color: #fd79a8 ">Materialize</span></dd>
-							<dt class="col-sm-4">Source Code</dt>
-							<dd class="col-sm-8"><a href="#" class="badge badge-warning">Open</a></dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-4">
-				<div class="card h-100">
-					<img src="img/t2.png" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Pencatatan data pensiunan</h5>
-						<p class="card-text">Melakukan pencatatan dan perhitungan otomatis data pensiunan pada instansi <del>censored</del></p>
-						<dl class="row">
-							<dt class="col-sm-4">Language</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-primary">Java</span></dd>
-							<dt class="col-sm-4">Database</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-success">Microsoft Access</span></dd>
-							<dt class="col-sm-4">Framework</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill">None</span></dd>
-							<dt class="col-sm-4">Source Code</dt>
-							<dd class="col-sm-8"><span class="badge badge-pill badge-secondary">Private</span></dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-		</div>
+  <section class="about">
+    <div class="wrap">
+      <div class="row">
+        <div class="label">About</div>
+        <div>
+          <p>I'm an engineer who likes the unglamorous part of AI: making it work reliably inside real products. Most of my time goes to language and data: reading the mess, finding what matters, and shipping it as something people can actually use.</p>
+          <p>Now I work on my own, putting that same care into the products I build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<h4 class="mt-5"><i class="fas fa-kiss-beam" style="color:#f39c12"></i> check me</h4>
+  <section>
+    <div class="wrap">
+      <div class="row" style="margin-bottom:40px">
+        <div class="label">What I do</div>
+        <div><h2>Turning language and data into working systems.</h2></div>
+      </div>
+      <div class="exp">
+        <div class="exp-item">
+          <div class="k">NLP in production</div>
+          <div>
+            <h3>Reading text at scale</h3>
+            <p>Sentiment, classification, and entity resolution pipelines that process large volumes of messy, real-world text, reliably, not just in a notebook.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="k">LLMs that ship</div>
+          <div>
+            <h3>AI features people actually use</h3>
+            <p>Structured output, enrichment, and semantic search wired into products, solving concrete problems instead of chasing hype.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="k">Search & matching</div>
+          <div>
+            <h3>Finding the right thing</h3>
+            <p>Embeddings, vector search, ranking, and record linkage: the quiet machinery behind good recommendations and clean data.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="k">Data & infra</div>
+          <div>
+            <h3>Lean by design</h3>
+            <p>Cloud-native pipelines on BigQuery and Cloud Run: serverless, event-driven, and cheap to run at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<div class="alert alert-info" role="alert">
-			<i class="fab fa-youtube" style="color:red"></i> a simple tutorial from me! <a href="https://www.youtube.com/mamans/" class="alert-link">subscribe</a>
-		</div>
-		<div class="alert alert-info" role="alert">
-			<i class="fab fa-instagram" style="color:#e84393"></i> a simple show off from me! <a href="https://www.instagram.com/rahmanenjozz/" class="alert-link">follow</a>
-		</div>
-		<div class="alert alert-info" role="alert">
-			<i class="fab fa-twitter" style="color:#0984e3"></i> a simple text from me! <a href="https://twitter.com/rahmanenjozz" class="alert-link">follow</a>
-		</div>
-	</div>
+  <section>
+    <div class="wrap">
+      <div class="row" style="margin-bottom:44px">
+        <div class="label">Selected work</div>
+        <div>
+          <h2 style="margin-bottom:.4em">Products, not prototypes.</h2>
+          <p style="max-width:54ch;color:var(--gray)">Built as the technical backbone of a data science team at a media intelligence company, turning raw text into systems analysts use every day.</p>
+        </div>
+      </div>
 
-	<footer class="footer mt-auto py-3">
-		<div class="container" style="text-align: center">
-			<span class="text-muted">&copy; no deep shit <i class="fas fa-heart fa-sm" style="color:#fd79a8"></i></span>
-		</div>
-	</footer>
+      <div class="work">
+        <article class="work-item">
+          <div class="w-meta">
+            <span class="k">01</span>
+            <span class="role">Media intelligence · team product</span>
+          </div>
+          <div>
+            <h3>Automated AI insight reports</h3>
+            <p>Producing one report meant six-plus hours of pulling data, running the numbers, and writing it all up. I built an LLM pipeline that does the whole thing, from raw data to a finished report, and reruns on a schedule without adding any human load.</p>
+            <p class="stat">6+ hrs of manual work &nbsp;→&nbsp; under 1 minute, recurring</p>
+            <div class="stack">
+              <span class="chip">Python</span>
+              <span class="chip">LLM structured output</span>
+              <span class="chip">Solr</span>
+              <span class="chip">Huawei Cloud</span>
+            </div>
+          </div>
+        </article>
 
-	<script src="js/jquery-3.4.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+        <article class="work-item">
+          <div class="w-meta">
+            <span class="k">02</span>
+            <span class="role">Media intelligence · team product</span>
+          </div>
+          <div>
+            <h3>Smart alert systems</h3>
+            <p>Not every spike is a crisis. Together with the team, I worked on a monitoring system that watches selected posts and escalates them through four stages, Normal, Watch, Hot, Crisis, by reading engagement velocity, sentiment, and volume together, so an early crisis surfaces before it grows while the noise stays quiet.</p>
+            <div class="states">
+              <span class="state s-normal">Normal</span>
+              <span class="state-arrow">→</span>
+              <span class="state s-watch">Watch</span>
+              <span class="state-arrow">→</span>
+              <span class="state s-hot">Hot</span>
+              <span class="state-arrow">→</span>
+              <span class="state s-crisis">Crisis</span>
+            </div>
+            <div class="stack">
+              <span class="chip">Python</span>
+              <span class="chip">Engagement velocity</span>
+              <span class="chip">Sentiment</span>
+              <span class="chip">Volume signals</span>
+              <span class="chip">Solr</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="w-meta">
+            <span class="k">03</span>
+            <span class="role">Media intelligence · team product</span>
+          </div>
+          <div>
+            <h3>Data layer for AI assistants</h3>
+            <p>An AI assistant is only as good as the data behind it. I owned the backend, designing the services and data layer that fed clean, structured, query-ready data to the analyst-facing AI assistants, so they answered from solid ground instead of raw mess.</p>
+            <div class="stack">
+              <span class="chip">Python</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Solr</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="row">
+        <div class="label">Stack</div>
+        <div class="stack">
+          <span class="chip">Go</span>
+          <span class="chip">Python</span>
+          <span class="chip">Google Cloud</span>
+          <span class="chip">BigQuery</span>
+          <span class="chip">Cloud Run</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Solr</span>
+          <span class="chip">Firestore</span>
+          <span class="chip">Huawei Cloud</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <h2 style="margin-bottom:.2em">Let's build something.</h2>
+          <p style="color:var(--gray)">Open to collaboration and interesting problems.</p>
+        </div>
+        <div class="foot-links">
+          <a class="link" href="https://github.com/rahmanenjozz">GitHub</a>
+          <a class="link" href="https://www.linkedin.com/in/rahmanenjozz/">LinkedIn</a>
+          <a class="link" href="https://www.instagram.com/rahmanenjozz/">Instagram</a>
+          <a class="link" href="mailto:rahmanshidiq32@gmail.com">Email</a>
+        </div>
+      </div>
+      <p class="colophon" style="margin-top:56px">© 2026 Rahman · Jakarta</p>
+    </div>
+  </footer>
+
 </body>
 </html>
