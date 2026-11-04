@@ -44,7 +44,7 @@ layout: default
   <p><a href="{{ page.medium }}" rel="noopener">{{ t.also_medium }}</a></p>
   {%- endif %}
 
-  {%- comment -%} Prev/next hanya di antara post dengan bahasa yang sama. {%- endcomment -%}
+  {%- comment -%} Prev/next only among posts in the same language. {%- endcomment -%}
   {%- assign same = site.posts | where: "lang", page.lang -%}
   {%- assign newer = nil -%}{%- assign older = nil -%}
   {%- for p in same -%}

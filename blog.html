@@ -1,14 +1,14 @@
 ---
 title: Writing
 permalink: /blog/
-description: "Tulisan Rahmans tentang NLP, computer vision, dan machine learning, dalam Bahasa Indonesia dan English."
+description: "Writing by Rahmans on NLP, computer vision, and machine learning, in Bahasa Indonesia and English."
 ---
 <section class="page-head">
   <h1>Writing</h1>
-  <p class="muted">Tulisan dalam Bahasa Indonesia dan English. Beberapa tersedia dalam dua bahasa.</p>
+  <p class="muted">Writing in Bahasa Indonesia and English. Some posts are available in both.</p>
   <div class="filter" role="group" aria-label="Filter by language" hidden>
-    <button type="button" data-set="all" aria-pressed="true">Semua</button>
-    <button type="button" data-set="id" aria-pressed="false">Indonesia</button>
+    <button type="button" data-set="all" aria-pressed="true">All</button>
+    <button type="button" data-set="id" aria-pressed="false">Indonesian</button>
     <button type="button" data-set="en" aria-pressed="false">English</button>
   </div>
 </section>
@@ -28,8 +28,8 @@ description: "Tulisan Rahmans tentang NLP, computer vision, dan machine learning
   {%- if forloop.last %}</ul></section>{% endif -%}
 {%- endfor -%}
 </div>
-<p class="muted empty" hidden>Belum ada tulisan di bahasa ini.</p>
-{%- if site.posts.size == 0 %}<p class="muted">Belum ada tulisan.</p>{% endif %}
+<p class="muted empty" hidden>No posts in this language.</p>
+{%- if site.posts.size == 0 %}<p class="muted">No posts yet.</p>{% endif %}
 
 <script>
 (function () {

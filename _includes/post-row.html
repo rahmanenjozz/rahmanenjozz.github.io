@@ -1,6 +1,6 @@
 {%- comment -%}
-  Satu baris post. Kalau post EN punya pasangan ID, baris ini ditandai
-  data-dup supaya di tampilan "Semua" artikelnya cuma muncul sekali.
+  One post row. If an EN post has an ID pair, mark it with data-dup so the
+  "All" view only shows the article once.
 {%- endcomment -%}
 {%- assign p = include.post -%}
 {%- include find-pair.html post=p -%}

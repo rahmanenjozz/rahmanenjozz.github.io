@@ -9,7 +9,7 @@ url: https://rahmanenjozz.github.io
 baseurl: ""
 lang: en
 email: rahmanshidiq32@gmail.com
-# Foto profil. Default pakai avatar GitHub; ganti ke /assets/img/profile.jpg kalau mau. (https://github.com/rahmanenjozz.png?size=192)
+# Profile photo. Swap to /assets/img/profile.jpg to use a local file. (https://github.com/rahmanenjozz.png?size=192)
 avatar: /assets/img/profile.svg
 google_site_verification: i1RsGTM-4OG2bBoDFRueWZH1jSlNGKZ3iWzIS5_jZsc
 
@@ -17,7 +17,6 @@ social:
   github: https://github.com/rahmanenjozz
   linkedin: https://www.linkedin.com/in/rahmanenjozz/
   huggingface: https://huggingface.co/rahmanenjozz
-  x: https://x.com/narahkaman
   instagram: https://www.instagram.com/rahmanenjozz/
   youtube: https://youtube.com/@rahmanenjozz
   medium: https://rahmanenjozz.medium.com/
@@ -32,7 +31,7 @@ timezone: Asia/Jakarta
 plugins:
   - jekyll-sitemap
 
-# Post bahasa diatur per folder, jadi tidak perlu tulis lang/permalink di tiap post.
+# Post language and permalink come from the folder; no need to set them per post.
 defaults:
   - scope:
       path: "_posts/id"
