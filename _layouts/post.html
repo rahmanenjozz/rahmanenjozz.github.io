@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- include find-pair.html post=page -%}
+{%- assign m = page.date | date: "%-m" | minus: 1 -%}
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+
+<div class="post-top">
+  <a class="back" href="{{ '/blog/' | relative_url }}">{{ t.back }}</a>
+  {%- if pair %}
+  <nav class="lang-switch" aria-label="Language">
+    {%- if page.lang == 'id' %}
+    <span aria-current="true">ID</span><a href="{{ pair.url | relative_url }}" hreflang="en" lang="en" title="{{ t.read_other }}">EN</a>
+    {%- else %}
+    <a href="{{ pair.url | relative_url }}" hreflang="id" lang="id" title="{{ t.read_other }}">ID</a><span aria-current="true">EN</span>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</div>
+
+<article class="post">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d" }} {{ t.months[m] }} {{ page.date | date: "%Y" }}</time>
+      · {{ minutes }} {{ t.min_read }}
+    </p>
+  </header>
+
+  <div class="prose">
+{{ content }}
+  </div>
+</article>
+
+<div class="post-foot">
+  {%- if page.tags and page.tags != empty %}
+  <ul class="tags">
+    {%- for tag in page.tags %}<li class="badge">{{ tag }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+  {%- if page.medium %}
+  <p><a href="{{ page.medium }}" rel="noopener">{{ t.also_medium }}</a></p>
+  {%- endif %}
+
+  {%- comment -%} Prev/next hanya di antara post dengan bahasa yang sama. {%- endcomment -%}
+  {%- assign same = site.posts | where: "lang", page.lang -%}
+  {%- assign newer = nil -%}{%- assign older = nil -%}
+  {%- for p in same -%}
+    {%- if p.url == page.url -%}
+      {%- assign i_prev = forloop.index0 | minus: 1 -%}
+      {%- assign i_next = forloop.index0 | plus: 1 -%}
+      {%- if forloop.first == false %}{% assign newer = same[i_prev] %}{% endif -%}
+      {%- if forloop.last == false %}{% assign older = same[i_next] %}{% endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if older or newer %}
+  <nav class="pager" aria-label="Posts">
+    <div>{% if older %}<a href="{{ older.url | relative_url }}"><small>{{ t.previous }}</small>{{ older.title }}</a>{% endif %}</div>
+    <div class="right">{% if newer %}<a href="{{ newer.url | relative_url }}"><small>{{ t.next }}</small>{{ newer.title }}</a>{% endif %}</div>
+  </nav>
+  {%- endif %}
+</div>

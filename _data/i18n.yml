@@ -1,0 +1,18 @@
+id:
+  locale: id_ID
+  back: Kembali ke Writing
+  min_read: menit baca
+  read_other: Baca dalam English
+  also_medium: Juga di Medium
+  previous: Sebelumnya
+  next: Berikutnya
+  months: [Jan, Feb, Mar, Apr, Mei, Jun, Jul, Agu, Sep, Okt, Nov, Des]
+en:
+  locale: en_US
+  back: Back to Writing
+  min_read: min read
+  read_other: Baca dalam Bahasa Indonesia
+  also_medium: Also on Medium
+  previous: Previous
+  next: Next
+  months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]

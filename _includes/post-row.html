@@ -1,0 +1,18 @@
+{%- comment -%}
+  Satu baris post. Kalau post EN punya pasangan ID, baris ini ditandai
+  data-dup supaya di tampilan "Semua" artikelnya cuma muncul sekali.
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- include find-pair.html post=p -%}
+<li class="post-row" data-lang="{{ p.lang }}"{% if pair and p.lang == 'en' %} data-dup{% endif %}>
+  <a href="{{ p.url | relative_url }}" hreflang="{{ p.lang }}">
+    <time datetime="{{ p.date | date_to_xmlschema }}">{% if include.short %}{{ p.date | date: "%m-%d" }}{% else %}{{ p.date | date: "%Y-%m-%d" }}{% endif %}</time>
+    <span class="post-title" lang="{{ p.lang }}">{{ p.title }}
+      {%- if include.excerpt and p.description %}<span class="post-excerpt">{{ p.description }}</span>{% endif -%}
+    </span>
+    <span class="badges">
+      <span class="badge">{{ p.lang | upcase }}</span>
+      {%- if pair %}<span class="badge">{{ pair.lang | upcase }}</span>{% endif -%}
+    </span>
+  </a>
+</li>

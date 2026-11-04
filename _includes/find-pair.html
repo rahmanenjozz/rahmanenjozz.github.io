@@ -1,0 +1,12 @@
+{%- comment -%}
+  Cari terjemahan dari include.post (post dengan `ref` sama, bahasa beda).
+  Hasil: variabel `pair` (kosong kalau tidak ada).
+{%- endcomment -%}
+{%- assign pair = nil -%}
+{%- if include.post.ref -%}
+  {%- for p in site.posts -%}
+    {%- if p.ref == include.post.ref and p.lang != include.post.lang -%}
+      {%- assign pair = p -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

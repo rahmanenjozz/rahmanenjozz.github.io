@@ -1,0 +1,6 @@
+---
+layout: null
+lang: en
+sitemap: false
+---
+{%- include feed.xml lang="en" title="English" -%}

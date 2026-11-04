@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav aria-label="Main">
+      {%- assign path = page.url -%}
+      <a href="{{ '/' | relative_url }}"{% if path == '/' %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/blog/' | relative_url }}"{% if path == '/blog/' or page.collection == 'posts' %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/about/' | relative_url }}"{% if path == '/about/' %} aria-current="page"{% endif %}>About</a>
+    </nav>
+  </header>
+
+  <main id="main">
+{{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <span>© {{ site.time | date: "%Y" }} {{ site.author }} · Jakarta</span>
+    <span>RSS: <a href="{{ '/feed-id.xml' | relative_url }}">ID</a> / <a href="{{ '/feed-en.xml' | relative_url }}">EN</a></span>
+  </footer>
+</div>
+</body>
+</html>

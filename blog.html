@@ -1,0 +1,65 @@
+---
+title: Writing
+permalink: /blog/
+description: "Tulisan Rahmans tentang NLP, computer vision, dan machine learning, dalam Bahasa Indonesia dan English."
+---
+<section class="page-head">
+  <h1>Writing</h1>
+  <p class="muted">Tulisan dalam Bahasa Indonesia dan English. Beberapa tersedia dalam dua bahasa.</p>
+  <div class="filter" role="group" aria-label="Filter by language" hidden>
+    <button type="button" data-set="all" aria-pressed="true">Semua</button>
+    <button type="button" data-set="id" aria-pressed="false">Indonesia</button>
+    <button type="button" data-set="en" aria-pressed="false">English</button>
+  </div>
+</section>
+
+<div class="archive post-list" data-filter="all">
+{%- assign current_year = "" -%}
+{%- for post in site.posts -%}
+  {%- assign y = post.date | date: "%Y" -%}
+  {%- if y != current_year -%}
+    {%- unless forloop.first %}</ul></section>{% endunless %}
+  <section class="year">
+    <h2 class="label">{{ y }}</h2>
+    <ul>
+    {%- assign current_year = y -%}
+  {%- endif -%}
+  {%- include post-row.html post=post short=true excerpt=true -%}
+  {%- if forloop.last %}</ul></section>{% endif -%}
+{%- endfor -%}
+</div>
+<p class="muted empty" hidden>Belum ada tulisan di bahasa ini.</p>
+{%- if site.posts.size == 0 %}<p class="muted">Belum ada tulisan.</p>{% endif %}
+
+<script>
+(function () {
+  var list = document.querySelector('.archive');
+  var bar = document.querySelector('.filter');
+  var empty = document.querySelector('.empty');
+  if (!list || !bar) return;
+  bar.hidden = false;
+  function apply(f) {
+    list.setAttribute('data-filter', f);
+    bar.querySelectorAll('button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.set === f ? 'true' : 'false');
+    });
+    var any = false;
+    list.querySelectorAll('.year').forEach(function (sec) {
+      sec.hidden = false;
+      var visible = Array.prototype.some.call(sec.querySelectorAll('.post-row'), function (r) {
+        return r.offsetParent !== null;
+      });
+      sec.hidden = !visible;
+      if (visible) any = true;
+    });
+    empty.hidden = any;
+    try { history.replaceState(null, '', f === 'all' ? location.pathname : '?lang=' + f); } catch (e) {}
+  }
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (b) apply(b.dataset.set);
+  });
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q === 'id' || q === 'en') apply(q);
+})();
+</script>

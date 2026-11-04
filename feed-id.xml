@@ -1,0 +1,6 @@
+---
+layout: null
+lang: id
+sitemap: false
+---
+{%- include feed.xml lang="id" title="Bahasa Indonesia" -%}
