@@ -41,10 +41,3 @@ medium: https://medium.com/...            # optional, after importing
 ## Cross-posting to Medium
 
 Publish here first, then use Medium's *Import story* with the post URL (one import per language). Medium sets the canonical link back to this site. Add the Medium URL to the `medium` field afterwards.
-
-## Local preview
-
-```
-bundle install
-bundle exec jekyll serve
-```
