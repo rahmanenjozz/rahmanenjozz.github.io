@@ -1,136 +1,52 @@
 ---
 title: About
 permalink: /about/
-description: "Rahmans (rahmanenjozz), AI/ML Engineer & Indie Builder di Jakarta. Production NLP, LLM features, search & matching, dan data infrastructure."
+description: "Rahman (rahmanenjozz), AI/ML engineer di Jakarta. Latar belakang NLP dan large-scale data pipelines, sekarang membangun produk AI untuk retail data, product matching, dan computer vision."
 ---
-<section class="page-head">
-  <h1>About</h1>
-</section>
-
-<section class="row about">
-  <h2 class="label">About</h2>
+<section class="about-intro">
+  <img class="avatar" src="{{ site.avatar }}" alt="Foto Rahman" width="96" height="96" loading="eager" />
   <div>
-    <p>I'm an engineer who likes the unglamorous part of AI: making it work reliably inside real products. Most of my time goes to language and data: reading the mess, finding what matters, and shipping it as something people can actually use.</p>
-    <p>Now I work on my own, putting that same care into the products I build.</p>
+    <h1>About</h1>
+    <p>I am Rahman, an AI/ML engineer based in Jakarta. My background is in NLP and large-scale data pipelines.</p>
+    <p class="muted">These days I work independently: building AI-powered features for clients and developing my own products, mostly around retail data, product matching and computer vision.</p>
   </div>
 </section>
 
 <section class="block">
-  <div class="row head">
-    <h2 class="label">What I do</h2>
-    <p class="h2">Turning language and data into working systems.</p>
-  </div>
-  <div class="exp">
-    <div class="exp-item">
-      <div class="k">NLP in production</div>
+  <h2 class="label list-head">Experience</h2>
+  <ul class="exp-list">
+    <li>
+      <span class="when">2025 to now</span>
       <div>
-        <h3>Reading text at scale</h3>
-        <p>Sentiment, classification, and entity resolution pipelines that process large volumes of messy, real-world text, reliably, not just in a notebook.</p>
+        <h3>Independent AI Engineer &amp; Consultant</h3>
+        <p class="muted">Building AI-powered products and helping businesses integrate AI into their workflows to improve efficiency, automate processes, and solve operational challenges.</p>
       </div>
-    </div>
-    <div class="exp-item">
-      <div class="k">LLMs that ship</div>
+    </li>
+    <li>
+      <span class="when">2022 to 2026</span>
       <div>
-        <h3>AI features people actually use</h3>
-        <p>Structured output, enrichment, and semantic search wired into products, solving concrete problems instead of chasing hype.</p>
+        <h3>Dataxet Sonar</h3>
+        <p class="muted">Large-scale social listening and NLP pipelines for media intelligence.</p>
       </div>
-    </div>
-    <div class="exp-item">
-      <div class="k">Search &amp; matching</div>
-      <div>
-        <h3>Finding the right thing</h3>
-        <p>Embeddings, vector search, ranking, and record linkage: the quiet machinery behind good recommendations and clean data.</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="k">Data &amp; infra</div>
-      <div>
-        <h3>Lean by design</h3>
-        <p>Cloud-native pipelines on BigQuery and Cloud Run: serverless, event-driven, and cheap to run at scale.</p>
-      </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </section>
 
 <section class="block">
-  <div class="row head">
-    <h2 class="label">Selected work</h2>
-    <div>
-      <p class="h2">Products, not prototypes.</p>
-      <p class="muted">Built as the technical backbone of a data science team at a media intelligence company, turning raw text into systems analysts use every day.</p>
-    </div>
-  </div>
-
-  <div class="work">
-    <article class="work-item">
-      <div class="w-meta">
-        <span class="k">01</span>
-        <span class="role">Media intelligence · team product</span>
-      </div>
-      <div>
-        <h3>Automated AI insight reports</h3>
-        <p>Producing one report meant six-plus hours of pulling data, running the numbers, and writing it all up. I built an LLM pipeline that does the whole thing, from raw data to a finished report, and reruns on a schedule without adding any human load.</p>
-        <p class="stat">6+ hrs of manual work &nbsp;→&nbsp; under 1 minute, recurring</p>
-        <ul class="stack">
-          <li>Python</li><li>LLM structured output</li><li>Solr</li><li>Huawei Cloud</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="work-item">
-      <div class="w-meta">
-        <span class="k">02</span>
-        <span class="role">Media intelligence · team product</span>
-      </div>
-      <div>
-        <h3>Smart alert systems</h3>
-        <p>Not every spike is a crisis. Together with the team, I worked on a monitoring system that watches selected posts and escalates them through four stages, Normal, Watch, Hot, Crisis, by reading engagement velocity, sentiment, and volume together, so an early crisis surfaces before it grows while the noise stays quiet.</p>
-        <div class="states" aria-label="Escalation stages: Normal, Watch, Hot, Crisis">
-          <span class="state s-normal">Normal</span>
-          <span class="state-arrow" aria-hidden="true">→</span>
-          <span class="state s-watch">Watch</span>
-          <span class="state-arrow" aria-hidden="true">→</span>
-          <span class="state s-hot">Hot</span>
-          <span class="state-arrow" aria-hidden="true">→</span>
-          <span class="state s-crisis">Crisis</span>
-        </div>
-        <ul class="stack">
-          <li>Python</li><li>Engagement velocity</li><li>Sentiment</li><li>Volume signals</li><li>Solr</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="work-item">
-      <div class="w-meta">
-        <span class="k">03</span>
-        <span class="role">Media intelligence · team product</span>
-      </div>
-      <div>
-        <h3>Data layer for AI assistants</h3>
-        <p>An AI assistant is only as good as the data behind it. I owned the backend, designing the services and data layer that fed clean, structured, query-ready data to the analyst-facing AI assistants, so they answered from solid ground instead of raw mess.</p>
-        <ul class="stack">
-          <li>Python</li><li>PostgreSQL</li><li>Solr</li>
-        </ul>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="block row">
   <h2 class="label">Stack</h2>
-  <ul class="stack">
+  <ul class="chips">
     <li>Go</li><li>Python</li><li>Google Cloud</li><li>BigQuery</li><li>Cloud Run</li><li>PostgreSQL</li><li>Solr</li><li>Firestore</li><li>Huawei Cloud</li>
   </ul>
 </section>
 
-<section class="block contact">
-  <p class="h2">Let's build something.</p>
-  <p class="muted">Open to collaboration and interesting problems.</p>
-  <div class="hero-links">
-    <a class="link" href="{{ site.social.github }}">GitHub</a>
-    <a class="link" href="{{ site.social.linkedin }}">LinkedIn</a>
-    <a class="link" href="{{ site.social.huggingface }}">Hugging Face</a>
-    <a class="link" href="{{ site.social.instagram }}">Instagram</a>
-    <a class="link" href="mailto:{{ site.email }}">Email</a>
-  </div>
+<section class="block">
+  <h2 class="label list-head">Elsewhere</h2>
+  <ul class="elsewhere">
+    <li><a href="{{ site.social.github }}" rel="me"><span>GitHub</span><span class="handle">rahmanenjozz</span></a></li>
+    <li><a href="{{ site.social.huggingface }}" rel="me"><span>Hugging Face</span><span class="handle">rahmanenjozz</span></a></li>
+    <li><a href="{{ site.social.linkedin }}" rel="me"><span>LinkedIn</span><span class="handle">rahmanenjozz</span></a></li>
+    {%- if site.social.medium and site.social.medium != "" %}
+    <li><a href="{{ site.social.medium }}" rel="me"><span>Medium</span><span class="handle">Rahmans</span></a></li>
+    {%- endif %}
+  </ul>
 </section>

@@ -1,5 +1,5 @@
 title: rahmanenjozz
-author: Rahmans
+author: Rahman
 tagline: AI/ML Engineer & Indie Builder
 description: >-
   rahmanenjozz (Rahmans) · AI/ML Engineer & Indie Builder. Production NLP and
@@ -9,6 +9,8 @@ url: https://rahmanenjozz.github.io
 baseurl: ""
 lang: en
 email: rahmanshidiq32@gmail.com
+# Foto profil. Default pakai avatar GitHub; ganti ke /assets/img/profile.jpg kalau mau. (https://github.com/rahmanenjozz.png?size=192)
+avatar: /assets/img/profile.jpg
 google_site_verification: i1RsGTM-4OG2bBoDFRueWZH1jSlNGKZ3iWzIS5_jZsc
 
 social:
@@ -18,6 +20,7 @@ social:
   x: https://x.com/narahkaman
   instagram: https://www.instagram.com/rahmanenjozz/
   youtube: https://youtube.com/@rahmanenjozz
+  medium: https://rahmanenjozz.medium.com/
 
 markdown: kramdown
 kramdown:

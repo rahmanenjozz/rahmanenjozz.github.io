@@ -91,7 +91,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "{{ site.author }}",
-  "alternateName": "rahmanenjozz, narahkaman, rahmans",
+  "alternateName": ["rahmanenjozz", "Rahmans", "narahkaman"],
   "url": "{{ '/' | absolute_url }}",
   "jobTitle": "{{ site.tagline }}",
   "sameAs": [
@@ -99,8 +99,10 @@
     "{{ site.social.linkedin }}",
     "{{ site.social.huggingface }}",
     "{{ site.social.instagram }}",
-    "{{ site.social.youtube }}"
-  ]
+    "{{ site.social.youtube }}"{% if site.social.medium and site.social.medium != "" %},
+    "{{ site.social.medium }}"{% endif %}
+  ],
+  "image": "{{ site.avatar }}"
 }
 </script>
 {%- endif %}
