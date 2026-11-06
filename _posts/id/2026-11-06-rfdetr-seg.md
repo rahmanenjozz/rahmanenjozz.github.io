@@ -3,7 +3,7 @@ title: "Model Segmentasi Produk Open-Source untuk Ritel Indonesia: Fine-tuning R
 description: Cerita di balik fine-tuning RF-DETR Nano menjadi model segmentasi produk ritel Indonesia, dari labeling dataset sampai trade-off kecepatan, kualitas mask, dan lisensi.
 ref: rfdetr-seg
 tags: [computer-vision, instance-segmentation, rf-detr, fine-tuning, retail]
-# image: /assets/img/posts/rfdetr-seg/cover.jpg
+image: /assets/img/posts/rfdetr-seg/cover.jpg
 # medium: https://medium.com/@rahmans/...
 ---
 
@@ -35,6 +35,9 @@ Konteksnya ritel Indonesia, terutama warung. Produknya digantung dalam bentuk re
 ## Kenapa segmentasi, bukan deteksi biasa
 
 Tugas model ini adalah menyerahkan potongan gambar yang bersih ke tahap berikutnya, yaitu pencarian produk lewat gambar. Detektor seperti YOLO menghasilkan bounding box, dan kotak di sekitar sachet tetap ikut memuat rak, tangan yang memegang, atau sachet sebelahnya di renceng yang sama. Mask segmentasi hanya berisi produknya.
+
+![Tiga produk kemasan di rak, dan produk yang sama setelah dipotong oleh model tanpa latar belakang](/assets/img/posts/rfdetr-seg/cover.jpg)
+*Kiri: foto input. Kanan: tiap produk dipotong oleh model, siap untuk tahap pencarian.*
 
 Hasilnya, tahap pencarian jadi lebih bersih sekaligus lebih efisien. Gambar yang dibandingkan hanya produknya, jadi latar belakang tidak bisa menarik hasil pencarian ke produk yang salah, dan tidak perlu ada langkah hapus latar belakang terpisah sebelum pencarian. Untuk sistem yang membandingkan gambar produk, hal ini lebih penting daripada selisih beberapa poin mAP.
 

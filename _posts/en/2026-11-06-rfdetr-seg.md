@@ -3,7 +3,7 @@ title: "Open-Source Product Segmentation for Indonesian Retail: Fine-tuning RF-D
 description: How I fine-tuned RF-DETR Nano into a class-agnostic product segmentation model for Indonesian retail, and the trade-offs behind it.
 ref: rfdetr-seg
 tags: [computer-vision, instance-segmentation, rf-detr, fine-tuning, retail]
-# image: /assets/img/posts/rfdetr-seg/cover.jpg
+image: /assets/img/posts/rfdetr-seg/cover.jpg
 # medium: https://medium.com/@rahmans/...
 ---
 
@@ -35,6 +35,9 @@ The context is Indonesian retail. Think of a *warung*, a small neighborhood shop
 ## Why segmentation instead of plain detection
 
 The model's job is to hand a clean crop to the next stage: searching for the product by image. A detector like YOLO gives you a bounding box, and a box around a sachet still contains the shelf, the hand holding it, or the next sachet in the strip. A segmentation mask contains only the product.
+
+![Three packaged products on a shelf, and the same products cut out by the model with the background removed](/assets/img/posts/rfdetr-seg/cover.jpg)
+*Left: the input photo. Right: each product cut out by the model, ready for the search stage.*
 
 That makes the search stage both cleaner and more efficient. The image it compares is just the product, so background clutter can't pull the results toward the wrong match, and there's no need for a separate background-removal step before the search. For anything that compares product images, that matters more than a few points of mAP.
 
