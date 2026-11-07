@@ -7,7 +7,7 @@ description: "What I'm playing now, what I've finished, and the saves worth brag
   <h1>Play</h1>
   <p class="muted">What I'm playing now, what I've finished, and the saves worth bragging about.</p>
   {%- if site.data.games.steam and site.data.games.steam != "" %}
-  <p class="play-links"><a class="link" href="{{ site.data.games.steam }}" rel="me">Steam</a></p>
+  <p class="play-links"><a class="link" href="{{ site.data.games.steam }}" rel="me noopener noreferrer" target="_blank">Steam</a></p>
   {%- endif %}
 </section>
 
@@ -72,7 +72,7 @@ description: "What I'm playing now, what I've finished, and the saves worth brag
       <div class="game-main">
         <span class="game-name">
           {%- if g.url and g.url != "" -%}
-          <a href="{{ g.url }}" rel="noopener noreferrer">{{ g.name }}</a>
+          <a href="{{ g.url }}" target="_blank" rel="noopener noreferrer">{{ g.name }}</a>
           {%- else -%}
           {{ g.name }}
           {%- endif -%}

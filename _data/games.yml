@@ -53,8 +53,7 @@ games:
 
   - name: "Roblox"
     status: paused
-    date: "2025-05"
-    date_end: "2026-05"
+    date: "2025-05/2026-05"
     url: https://www.roblox.com
 
   - name: "Clash of Clans"
