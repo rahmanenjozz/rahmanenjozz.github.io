@@ -6,17 +6,20 @@ games:
     date: "2026-06"
     stat: "~4,400 hrs"
     note: "Turbo enjoyer"
+    url: https://store.steampowered.com/app/570/Dota_2
 
   - name: "Ragnarok: The New World"
     status: playing
     date: "2026-11"
     stat: "Lv 93"
     note: "Ragnarok wanderer"
+    url: https://store.steampowered.com/app/4212480/Ragnarok_The_New_World
 
   - name: "Clone Hero"
     status: playing
     date: "2026-11"
     note: "Break your keyboard"
+    url: https://clonehero.net
 
   - name: "A Space for the Unbound"
     status: finished
@@ -24,24 +27,35 @@ games:
     stat: "Achievements 25/25"
     note: "earned the Rippening badge"
     fav: true
+    url: https://store.steampowered.com/app/1201270/A_Space_for_the_Unbound
 
   - name: "Little Nightmares"
     status: finished
     date: "2025-08"
     stat: "Achievements 21/22"
     fav: true
+    url: https://store.steampowered.com/app/424840/Little_Nightmares
 
   - name: "The Forest"
     status: finished
     date: "2026-05"
+    url: https://store.steampowered.com/app/242760/The_Forest
 
   - name: "Green Hell"
     status: finished
     date: "2026-05"
+    url: https://store.steampowered.com/app/815370/Green_Hell
 
   - name: "Sons of the Forest"
     status: paused
     date: "2026-07"
+    url: https://store.steampowered.com/app/1326470/Sons_Of_The_Forest
+
+  - name: "Roblox"
+    status: paused
+    date: "2025-05"
+    date_end: "2026-05"
+    url: https://www.roblox.com
 
   - name: "Clash of Clans"
     status: archive

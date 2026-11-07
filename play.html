@@ -26,14 +26,23 @@ description: "What I'm playing now, what I've finished, and the saves worth brag
   </h2>
   <ul class="game-list">
     {%- for g in items -%}
-      {%- comment -%} Format date: YYYY-MM → "Sep 2026", YYYY → "2026", YYYY-YYYY → "2016–2026" {%- endcomment -%}
-      {%- assign parts = g.date | split: "-" -%}
-      {%- if parts.size == 2 and parts[1].size == 2 -%}
-        {%- assign mi = parts[1] | plus: 0 | minus: 1 -%}
-        {%- assign date_fmt = months[mi] | append: " " | append: parts[0] -%}
-      {%- else -%}
-        {%- assign date_fmt = g.date | replace: "-", "–" -%}
-      {%- endif -%}
+
+      {%- assign range_parts = g.date | split: "/" -%}
+      {%- assign date_fmt = "" -%}
+      {%- for token in range_parts -%}
+        {%- assign parts = token | split: "-" -%}
+        {%- if parts.size == 2 and parts[1].size == 2 -%}
+          {%- assign mi = parts[1] | plus: 0 | minus: 1 -%}
+          {%- assign one = months[mi] | append: " " | append: parts[0] -%}
+        {%- else -%}
+          {%- assign one = token | replace: "-", "–" -%}
+        {%- endif -%}
+        {%- if date_fmt == "" -%}
+          {%- assign date_fmt = one -%}
+        {%- else -%}
+          {%- assign date_fmt = date_fmt | append: " – " | append: one -%}
+        {%- endif -%}
+      {%- endfor -%}
 
       {%- if s == "playing" -%}
         {%- assign meta = g.note -%}
@@ -43,19 +52,32 @@ description: "What I'm playing now, what I've finished, and the saves worth brag
           {%- assign meta = meta | append: " · " | append: g.note -%}
         {%- endif -%}
       {%- elsif s == "paused" -%}
-        {%- assign meta = "Last played " | append: date_fmt -%}
+        {%- if range_parts.size > 1 -%}
+          {%- assign meta = "Played " | append: date_fmt -%}
+        {%- else -%}
+          {%- assign meta = "Last played " | append: date_fmt -%}
+        {%- endif -%}
         {%- if g.note and g.note != "" -%}
           {%- assign meta = meta | append: " · " | append: g.note -%}
         {%- endif -%}
       {%- else -%}
+        {%- comment -%} archive {%- endcomment -%}
         {%- assign meta = date_fmt -%}
         {%- if g.note and g.note != "" -%}
           {%- assign meta = meta | append: " · " | append: g.note -%}
         {%- endif -%}
       {%- endif -%}
+
     <li>
       <div class="game-main">
-        <span class="game-name">{{ g.name }}{% if g.fav %} <span class="game-fav" title="Favorite">★</span>{% endif %}</span>
+        <span class="game-name">
+          {%- if g.url and g.url != "" -%}
+          <a href="{{ g.url }}" rel="noopener noreferrer">{{ g.name }}</a>
+          {%- else -%}
+          {{ g.name }}
+          {%- endif -%}
+          {%- if g.fav %} <span class="game-fav" title="Favorite">★</span>{% endif %}
+        </span>
         {%- if meta and meta != "" %}<span class="game-meta muted">{{ meta }}</span>{% endif %}
       </div>
       {%- if g.stat and g.stat != "" %}<span class="game-stat">{{ g.stat }}</span>{% endif %}
