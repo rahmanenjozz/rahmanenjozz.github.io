@@ -12,6 +12,7 @@
       {%- assign path = page.url -%}
       <a href="{{ '/' | relative_url }}"{% if path == '/' %} aria-current="page"{% endif %}>Home</a>
       <a href="{{ '/blog/' | relative_url }}"{% if path == '/blog/' or page.collection == 'posts' %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/play/' | relative_url }}"{% if path == '/play/' %} aria-current="page"{% endif %}>Play</a>
       <a href="{{ '/about/' | relative_url }}"{% if path == '/about/' %} aria-current="page"{% endif %}>About</a>
     </nav>
   </header>

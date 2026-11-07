@@ -1,0 +1,67 @@
+---
+title: Play
+permalink: /play/
+description: "What I'm playing now, what I've finished, and the saves worth bragging about."
+---
+<section class="page-head">
+  <h1>Play</h1>
+  <p class="muted">What I'm playing now, what I've finished, and the saves worth bragging about.</p>
+  {%- if site.data.games.steam and site.data.games.steam != "" %}
+  <p class="play-links"><a class="link" href="{{ site.data.games.steam }}" rel="me">Steam</a></p>
+  {%- endif %}
+</section>
+
+{%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+{%- assign statuses = "playing,finished,paused,archive" | split: "," -%}
+{%- assign labels = "Playing,Finished,Paused,Archive" | split: "," -%}
+{%- assign icons = "▶,✓,⏸,◦" | split: "," -%}
+
+{%- for s in statuses -%}
+  {%- assign items = site.data.games.games | where: "status", s -%}
+  {%- if items.size > 0 -%}
+<section class="block play-section">
+  <h2 class="label list-head">
+    <span class="play-icon" aria-hidden="true">{{ icons[forloop.index0] }}</span>
+    {{ labels[forloop.index0] }}
+  </h2>
+  <ul class="game-list">
+    {%- for g in items -%}
+      {%- comment -%} Format date: YYYY-MM → "Sep 2026", YYYY → "2026", YYYY-YYYY → "2016–2026" {%- endcomment -%}
+      {%- assign parts = g.date | split: "-" -%}
+      {%- if parts.size == 2 and parts[1].size == 2 -%}
+        {%- assign mi = parts[1] | plus: 0 | minus: 1 -%}
+        {%- assign date_fmt = months[mi] | append: " " | append: parts[0] -%}
+      {%- else -%}
+        {%- assign date_fmt = g.date | replace: "-", "–" -%}
+      {%- endif -%}
+
+      {%- if s == "playing" -%}
+        {%- assign meta = g.note -%}
+      {%- elsif s == "finished" -%}
+        {%- assign meta = "Finished " | append: date_fmt -%}
+        {%- if g.note and g.note != "" -%}
+          {%- assign meta = meta | append: " · " | append: g.note -%}
+        {%- endif -%}
+      {%- elsif s == "paused" -%}
+        {%- assign meta = "Last played " | append: date_fmt -%}
+        {%- if g.note and g.note != "" -%}
+          {%- assign meta = meta | append: " · " | append: g.note -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- assign meta = date_fmt -%}
+        {%- if g.note and g.note != "" -%}
+          {%- assign meta = meta | append: " · " | append: g.note -%}
+        {%- endif -%}
+      {%- endif -%}
+    <li>
+      <div class="game-main">
+        <span class="game-name">{{ g.name }}{% if g.fav %} <span class="game-fav" title="Favorite">★</span>{% endif %}</span>
+        {%- if meta and meta != "" %}<span class="game-meta muted">{{ meta }}</span>{% endif %}
+      </div>
+      {%- if g.stat and g.stat != "" %}<span class="game-stat">{{ g.stat }}</span>{% endif %}
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+  {%- endif -%}
+{%- endfor -%}

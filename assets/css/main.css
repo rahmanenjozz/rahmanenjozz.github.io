@@ -150,12 +150,32 @@ h1,h2,h3{color:var(--head);font-family:var(--serif);font-weight:600;letter-spaci
 .elsewhere .handle{font-family:var(--mono);font-size:.8rem;color:var(--gray)}
 .hero h1+.lede{margin-top:0}
 
+/* play */
+.play-links{margin-top:20px}
+.play-section .list-head{display:flex;align-items:center;gap:8px}
+.play-icon{font-size:.85rem;letter-spacing:0;text-transform:none}
+.game-list li{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px 24px;
+  align-items:baseline;
+  padding:14px 0;
+  border-top:1px solid var(--hair);
+}
+.game-list li:last-child{border-bottom:1px solid var(--hair)}
+.game-main{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;min-width:0}
+.game-name{color:var(--head);font-weight:500}
+.game-fav{color:var(--head);font-weight:400}
+.game-meta{font-size:.9rem}
+.game-stat{font-family:var(--mono);font-size:.78rem;color:var(--gray);white-space:nowrap}
+
 @media (max-width:640px){
   body{font-size:16px}
   .exp-list li{grid-template-columns:1fr;gap:4px}
   .about-intro{padding-top:48px}
   .post-row a,.archive .post-row a{grid-template-columns:1fr auto;gap:4px 12px}
   .post-row time{grid-column:1/-1}
+  .game-main{flex-direction:column;gap:2px}
   .hero{padding:9vh 0 7vh}
   .page-head,.post-top{padding-top:48px}
 }

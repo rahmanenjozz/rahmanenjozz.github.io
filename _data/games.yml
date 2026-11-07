@@ -1,0 +1,56 @@
+steam: https://steamcommunity.com/id/rahmanenjozz
+
+games:
+  - name: "Dota 2"
+    status: playing
+    date: "2026-06"
+    stat: "~4,400 hrs"
+    note: "Turbo enjoyer"
+
+  - name: "Ragnarok: The New World"
+    status: playing
+    date: "2026-11"
+    stat: "Lv 93"
+    note: "Ragnarok wanderer"
+
+  - name: "Clone Hero"
+    status: playing
+    date: "2026-11"
+    note: "Break your keyboard"
+
+  - name: "A Space for the Unbound"
+    status: finished
+    date: "2025-04"
+    stat: "Achievements 25/25"
+    note: "earned the Rippening badge"
+    fav: true
+
+  - name: "Little Nightmares"
+    status: finished
+    date: "2025-08"
+    stat: "Achievements 21/22"
+    fav: true
+
+  - name: "The Forest"
+    status: finished
+    date: "2026-05"
+
+  - name: "Green Hell"
+    status: finished
+    date: "2026-05"
+
+  - name: "Sons of the Forest"
+    status: paused
+    date: "2026-07"
+
+  - name: "Clash of Clans"
+    status: archive
+    date: "2014-2018"
+    stat: "Town Hall Lv 10"
+    note: "might open it again someday"
+
+  - name: "Pokémon GO"
+    status: archive
+    date: "2018-2020"
+    stat: "Trainer Lv 42"
+    note: "might open it again someday"
