@@ -184,13 +184,49 @@ h1,h2,h3{color:var(--head);font-family:var(--serif);font-weight:600;letter-spaci
   html{scroll-behavior:auto}
 }
 
+/* light theme — projects page only */
+body.page-wide {
+  --paper: #f7f7f5;
+  --ink: #3f3f46;
+  --head: #18181b;
+  --gray: #71717a;
+  --hair: #e4e4e7;
+  --code: #ecece8;
+  --accent: #0f766e; /* teal seperti SS */
+  background: var(--paper);
+  color: var(--ink);
+}
+
 /* wider container for selected pages */
 body.page-wide .wrap {
   max-width: 1080px;
 }
 
-/* projects */
+body.page-wide .brand,
+body.page-wide .site-header nav a[aria-current] {
+  color: var(--head);
+}
 
+body.page-wide .site-header nav a {
+  color: var(--gray);
+}
+
+body.page-wide .project-links a {
+  color: var(--accent);
+}
+
+body.page-wide .project-thumb {
+  background: var(--code);
+  border-color: var(--hair);
+}
+
+body.page-wide .project-stack span {
+  background: #fff;
+  border-color: var(--hair);
+  color: var(--gray);
+}
+
+/* projects */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
