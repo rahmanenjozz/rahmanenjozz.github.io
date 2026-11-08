@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /projects/
 
 Sitemap: https://rahmanenjozz.github.io/sitemap.xml
