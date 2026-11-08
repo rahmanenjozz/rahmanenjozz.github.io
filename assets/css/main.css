@@ -184,41 +184,55 @@ h1,h2,h3{color:var(--head);font-family:var(--serif);font-weight:600;letter-spaci
   html{scroll-behavior:auto}
 }
 
+/* light theme — projects page only */
+body.page-wide {
+  --paper: #f7f7f5;
+  --ink: #3f3f46;
+  --head: #18181b;
+  --gray: #71717a;
+  --hair: #e4e4e7;
+  --code: #ecece8;
+  --accent: #0f766e; /* teal seperti SS */
+  background: var(--paper);
+  color: var(--ink);
+}
+
 /* wider container for selected pages */
 body.page-wide .wrap {
   max-width: 1080px;
 }
 
-/* projects */
-.project-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
-}
-.project-filters button {
-  font: inherit;
-  font-size: .85rem;
-  cursor: pointer;
-  border: 1px solid var(--hair);
-  border-radius: 999px;
-  padding: 6px 14px;
-  background: transparent;
-  color: var(--gray);
-}
-.project-filters button[aria-pressed="true"] {
-  background: var(--head);
-  color: var(--paper);
-  border-color: var(--head);
+body.page-wide .brand,
+body.page-wide .site-header nav a[aria-current] {
+  color: var(--head);
 }
 
+body.page-wide .site-header nav a {
+  color: var(--gray);
+}
+
+body.page-wide .project-links a {
+  color: var(--accent);
+}
+
+body.page-wide .project-thumb {
+  background: var(--code);
+  border-color: var(--hair);
+}
+
+body.page-wide .project-stack span {
+  background: #fff;
+  border-color: var(--hair);
+  color: var(--gray);
+}
+
+/* projects */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px 24px;
   margin-top: 40px;
 }
-.project-card[hidden] { display: none; }
 
 .project-thumb {
   display: block;
@@ -246,14 +260,6 @@ body.page-wide .wrap {
   font-size: .72rem;
   color: var(--gray);
 }
-.project-status {
-  padding: 2px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--hair);
-}
-.project-status.open-source { color: #86efac; border-color: #14532d; }
-.project-status.client { color: #fdba74; border-color: #7c2d12; }
-.project-status.in-progress { color: #93c5fd; border-color: #1e3a8a; }
 
 .project-card h2 {
   font-size: 1.05rem;
