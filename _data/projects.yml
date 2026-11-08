@@ -1,0 +1,24 @@
+projects:
+  - title: "ShelfVision"
+    year: "2026"
+    status: open-source
+    summary: "On-device product detection and segmentation for retail shelves."
+    image: /assets/img/posts/rfdetr-seg/cover.jpg
+    image_alt: "Segmentation result on a shelf photo"
+    stack: [Python, ONNX, RF-DETR]
+    links:
+      - label: Model
+        url: https://huggingface.co/…
+      - label: Write-up
+        url: /en/rfdetr-seg/
+
+  - title: "Matchly"
+    year: "2025–2026"
+    status: client
+    summary: "Product matching API for catalogs and marketplace feeds."
+    image: /assets/img/projects/matchly.png
+    image_alt: "Matchly matching UI"
+    stack: [Go, PostgreSQL, Gemini]
+    links:
+      - label: Case study
+        url: "#"
