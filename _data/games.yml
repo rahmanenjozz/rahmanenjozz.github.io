@@ -46,6 +46,21 @@ games:
     date: "2026-05"
     url: https://store.steampowered.com/app/815370/Green_Hell
 
+  - name: "Tomb Raider Game of the Year"
+    status: finished
+    date: "2020-05"
+    url: https://store.steampowered.com/app/203160/Tomb_Raider_Game_of_the_Year
+
+  - name: "Assassin's Creed IV Black Flag"
+    status: finished
+    date: "2017-12/2026-05"
+    url: https://www.ubisoft.com/en-us/game/assassins-creed/iv-black-flag
+
+  - name: "Assassin's Creed II"
+    status: finished
+    date: "2020-09"
+    url: https://www.ubisoft.com/en-us/game/assassins-creed/assassins-creed-II
+
   - name: "Sons of the Forest"
     status: paused
     date: "2026-07"
@@ -55,6 +70,16 @@ games:
     status: paused
     date: "2025-05/2026-05"
     url: https://www.roblox.com
+
+  - name: "The Witcher 3: Wild Hunt"
+    status: paused
+    date: "2025-12"
+    url: https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt_Remastered
+
+  - name: "Assassin's Creed Syndicate"
+    status: paused
+    date: "2024-01"
+    url: https://www.ubisoft.com/en-us/game/assassins-creed/syndicate
 
   - name: "Clash of Clans"
     status: archive
