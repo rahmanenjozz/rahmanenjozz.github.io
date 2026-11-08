@@ -1,0 +1,85 @@
+---
+title: Projects
+permalink: /projects/
+description: "Selected work across open-source, client projects, and experiments."
+body_class: page-wide
+robots: noindex
+---
+<section class="page-head">
+  <h1>Projects</h1>
+  <p class="lede">Selected work across open-source, client projects, and experiments in progress.</p>
+  <div class="project-filters" role="group" aria-label="Filter projects">
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" data-filter="open-source" aria-pressed="false">Open-source</button>
+    <button type="button" data-filter="client" aria-pressed="false">Client work</button>
+    <button type="button" data-filter="in-progress" aria-pressed="false">In progress</button>
+  </div>
+</section>
+
+<div class="project-grid">
+{%- for p in site.data.projects.projects -%}
+  <article class="project-card" data-status="{{ p.status }}">
+    {%- if p.image -%}
+    <a class="project-thumb"
+       href="{{ p.image | relative_url }}"
+       target="_blank"
+       rel="noopener noreferrer">
+      <img src="{{ p.image | relative_url }}"
+           alt="{{ p.image_alt | default: p.title | escape }}"
+           loading="lazy"
+           width="640"
+           height="400">
+    </a>
+    {%- endif -%}
+
+    <div class="project-meta">
+      <span>{{ p.year }}</span>
+      <span class="project-status {{ p.status }}">
+        {%- case p.status -%}
+          {%- when "open-source" -%}Open-source
+          {%- when "client" -%}Client work
+          {%- when "in-progress" -%}In progress
+          {%- else -%}{{ p.status }}
+        {%- endcase -%}
+      </span>
+    </div>
+
+    <h2>{{ p.title }}</h2>
+    <p class="summary">{{ p.summary }}</p>
+
+    {%- if p.stack -%}
+    <div class="project-stack">
+      {%- for tech in p.stack -%}<span>{{ tech }}</span>{%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    {%- if p.links -%}
+    <div class="project-links">
+      {%- for link in p.links -%}
+      <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label }} →</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </article>
+{%- endfor -%}
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector(".project-filters");
+  if (!root) return;
+  var cards = document.querySelectorAll(".project-card");
+  root.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+    var filter = btn.getAttribute("data-filter");
+    root.querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    cards.forEach(function (card) {
+      var show = filter === "all" || card.getAttribute("data-status") === filter;
+      card.hidden = !show;
+    });
+  });
+})();
+</script>
