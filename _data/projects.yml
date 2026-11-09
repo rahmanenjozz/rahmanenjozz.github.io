@@ -1,22 +1,30 @@
 projects:
-  - title: "ShelfVision"
+  - title: "RF-DETR Nano · Product Segmentation"
     year: "2026"
-    summary: "On-device product detection and segmentation for retail shelves."
+    summary: "Fine-tuned segmentation model for Indonesian retail products, published on Hugging Face."
     image: /assets/img/posts/rfdetr-seg/cover.jpg
     image_alt: "Segmentation result on a shelf photo"
     stack: [Python, ONNX, RF-DETR]
     links:
       - label: Model
-        url: https://huggingface.co/…
+        url: https://huggingface.co/rahmanenjozz/retail-product-seg-rfdetr-n
       - label: Write-up
         url: /en/rfdetr-seg/
 
-  - title: "Matchly"
-    year: "2025–2026"
-    summary: "Product matching API for catalogs and marketplace feeds."
-    image: /assets/img/projects/matchly.png
-    image_alt: "Matchly matching UI"
-    stack: [Go, PostgreSQL, Gemini]
-    links:
-      - label: Case study
-        url: "#"
+  - title: "Posagi Analytics"
+    year: "2026"
+    summary: "Sales analytics dashboard for the POS app."
+    image: /assets/img/projects/posagi-analytics.png
+    stack: [Go, Google Cloud, BigQuery, Svelte]
+
+  - title: "AI Insight Summary"
+    year: "2026"
+    summary: "AI Insight Summary"
+    image: /assets/img/projects/posagi-analytics.png
+    stack: [Solr, Python, Prompt]
+
+  - title: "Keyword Recomendation"
+    year: "2026"
+    summary: "Keyword Recomendation"
+    image: /assets/img/projects/posagi-analytics.png
+    stack: [Solr, Python, Fasttext]
