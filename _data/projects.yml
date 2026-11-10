@@ -1,9 +1,15 @@
 projects:
   - title: "RF-DETR Nano · Product Segmentation"
     year: "2026"
-    summary: "Fine-tuned segmentation model for Indonesian retail products, published on Hugging Face."
-    image: /assets/img/posts/rfdetr-seg/cover.jpg
-    image_alt: "Segmentation result on a shelf photo"
+    summary: "Open-source model that finds retail products in a photo. It is the first stage of a product image search pipeline."
+    details:
+      - "Fine-tuned from LibreRFDETRn-seg on my own labeled dataset of Indonesian retail products, with a single class: product."
+      - "Only products with a visible brand, logo or text are labeled, so the model learns what a search step can actually identify."
+      - "About 300 ms per image on a GTX 1650 and about 1.6 s on a Ryzen 5 CPU. Released as PyTorch and ONNX."
+      - "The demo runs the ONNX model directly in the browser, with no server and no PyTorch."
+      - "Built for photos of one product or a small group, not crowded shelves."
+    image: /assets/img/projects/rfdetr-seg.avif
+    image_alt: "Segmentation result on retail product photos"
     stack: [Python, ONNX, RF-DETR]
     links:
       - label: Model
@@ -13,18 +19,37 @@ projects:
 
   - title: "Posagi Analytics"
     year: "2026"
-    summary: "Sales analytics dashboard for the POS app."
-    image: /assets/img/projects/posagi-analytics.png
+    summary: "Sell-out analytics for brand and principal teams, built on the daily sales merchants record in the POS app."
+    details:
+      - "Sell-out trend by brand, day by day, so teams can see how a brand is tracking before the month closes."
+      - "Brand breakdown in one table: rank, reach and share side by side."
+      - "Area coverage: one region split by city, with the brand mix shown in each bar."
+      - "Daily BigQuery pipeline with partitioned tables and scheduled rollups. Yesterday's sales are published every morning."
+      - "Private by design: no buyer identity, and minimum merchant counts per data cell so no single shop can be singled out."
+    image: /assets/img/projects/posagi-analytics.avif
+    image_alt: "Posagi Analytics dashboard"
     stack: [Go, Google Cloud, BigQuery, Svelte]
 
   - title: "AI Insight Summary"
     year: "2026"
-    summary: "AI Insight Summary"
-    image: /assets/img/projects/posagi-analytics.png
-    stack: [Solr, Python, Prompt]
+    summary: "Automates media monitoring reports end to end, from raw data to a finished insight report, cutting 6+ hours of analyst work to under a minute."
+    details:
+      - "Covers several report types: industry trends, competitor analysis, campaign performance and more."
+      - "One pipeline does what analysts did by hand: filtering, cleaning, pivoting and analysis on data pulled from Solr."
+      - "Every number is computed in code. The LLM only interprets the results and writes the narrative through a fixed structured output, so figures stay correct."
+      - "Runs on a schedule, so recurring reports go out without adding analyst workload."
+    image: /assets/img/projects/ai-insight-summary.avif
+    image_alt: "Diagram of keyword suggestions from a seed keyword"
+    stack: [Python, Solr, LLM]
 
-  - title: "Keyword Recomendation"
-    year: "2026"
-    summary: "Keyword Recomendation"
-    image: /assets/img/projects/posagi-analytics.png
-    stack: [Solr, Python, Fasttext]
+  - title: "Keyword Recommendation"
+    year: "2025"
+    summary: "Recommends monitoring keywords tailored to the user's industry and role, combining LLM-generated seeds with fastText neighbors."
+    details:
+      - "Starts from context: the industry and the user's role, such as manager, data analyst or sales."
+      - "An LLM turns that context into seed keywords that fit what this user needs to monitor."
+      - "Each seed is expanded through nearest-neighbor search over fastText vectors built from Indonesian social media and news text pulled from Solr."
+      - "Subword n-grams surface variants a dictionary misses, such as typos, abbreviations and slang spellings."
+    image: /assets/img/projects/keyword-recommendation.avif
+    image_alt: "Diagram of keyword suggestions from a seed keyword"
+    stack: [Python, Solr, fastText, LLM]
