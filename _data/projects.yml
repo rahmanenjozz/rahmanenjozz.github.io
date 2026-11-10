@@ -19,7 +19,7 @@ projects:
 
   - title: "Posagi Analytics"
     year: "2026"
-    summary: "Sell-out analytics for brand and principal teams, built on the daily sales warung merchants record in the Kasir Warung POS app."
+    summary: "Sell-out analytics for brand and principal teams, built on the daily sales merchants record in the POS app."
     details:
       - "Sell-out trend by brand, day by day, so teams can see how a brand is tracking before the month closes."
       - "Brand breakdown in one table: rank, reach and share side by side."
