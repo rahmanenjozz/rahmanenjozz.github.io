@@ -32,7 +32,7 @@ projects:
 
   - title: "AI Insight Summary"
     year: "2026"
-    summary: "Automates media monitoring reports end to end, from raw data to a finished insight report, cutting 6+ hours of analyst work to under a minute."
+    summary: "Automates media monitoring reports end to end, from raw data to a finished insight report."
     details:
       - "Covers several report types: industry trends, competitor analysis, campaign performance and more."
       - "One pipeline does what analysts did by hand: filtering, cleaning, pivoting and analysis on data pulled from Solr."
