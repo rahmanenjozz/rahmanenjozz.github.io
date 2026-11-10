@@ -305,3 +305,15 @@ body.page-wide .project-stack span {
 @media (max-width: 640px) {
   .project-grid { grid-template-columns: 1fr; }
 }
+
+.project-details {
+  list-style: disc;
+  padding-left: 1.15em;
+  margin-top: 10px;
+  font-size: .88rem;
+  color: var(--gray);
+  line-height: 1.55;
+}
+.project-details li + li {
+  margin-top: .35em;
+}

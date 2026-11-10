@@ -29,6 +29,14 @@ robots: noindex
     <h2>{{ p.title }}</h2>
     <p class="summary">{{ p.summary }}</p>
 
+    {%- if p.details -%}
+    <ul class="project-details">
+      {%- for item in p.details -%}
+      <li>{{ item }}</li>
+      {%- endfor -%}
+    </ul>
+    {%- endif -%}
+
     {%- if p.stack -%}
     <div class="project-stack">
       {%- for tech in p.stack -%}<span>{{ tech }}</span>{%- endfor -%}
