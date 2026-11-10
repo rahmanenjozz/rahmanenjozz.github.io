@@ -306,14 +306,33 @@ body.page-wide .project-stack span {
   .project-grid { grid-template-columns: 1fr; }
 }
 
-.project-details {
-  list-style: disc;
-  padding-left: 1.15em;
+.project-more {
   margin-top: 10px;
-  font-size: .88rem;
+}
+.project-more > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--gray);
+  user-select: none;
+}
+.project-more > summary::-webkit-details-marker {
+  display: none; /* Chrome/Safari */
+}
+.project-more > summary::before {
+  content: "+ ";
+}
+.project-more[open] > summary::before {
+  content: "- ";
+}
+
+.project-details {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: .9rem;
   color: var(--gray);
   line-height: 1.55;
 }
-.project-details li + li {
-  margin-top: .35em;
-}
+.project-details p + p { margin-top: .7em; }
